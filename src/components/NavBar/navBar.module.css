@@ -1,0 +1,19 @@
+.container{
+   height: 10rem;
+   width: 100%;
+   background-color: #ffffff;
+   margin-bottom: 1rem;
+   /* display: flex; */
+   /* position: fixed; */
+}
+.dropdown{
+   border-color: #043F04 !important;
+}
+
+.dropdown :focus{
+   box-shadow: 0 0 0 0.2rem #289628 !important;
+}
+.dropdown :hover{
+   border-color: #043F04 !important;
+   box-shadow: 0 0 0 0.05rem #289628 !important;
+}
