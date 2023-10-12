@@ -53,18 +53,6 @@
    max-width: 100%;
 }
 
-.dietContainer {
-   display: flex;
-   flex-direction: row;
-}
-
-.dietContainer p {
-   margin-right: 0.25rem;
-   border: 1px solid black;
-   padding: 2px;
-   border-radius: 10px;
-}
-
 @media (max-width: 768px) {
    .container {
       flex-direction: column;

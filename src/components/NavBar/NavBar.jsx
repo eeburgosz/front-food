@@ -20,7 +20,7 @@ export const NavBar = () => {
 
 	return (
 		<div className={style.container}>
-			<div className={`card flex justify-content-center ${style.dropdown}`}>
+			<div className={`card flex justify-content-center`}>
 				<Dropdown
 					value={selectedType}
 					onChange={handleChange}
