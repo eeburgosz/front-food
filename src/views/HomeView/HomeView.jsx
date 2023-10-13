@@ -1,11 +1,15 @@
 import React from "react";
-import { CardsContainer, Footer, NavBar } from "./../../components";
+import { CardsContainer, Filters, Footer, NavBar } from "./../../components";
+import style from "./Home.module.css";
 
 export const HomeView = () => {
 	return (
 		<div>
 			<NavBar />
-			<CardsContainer />
+			<div className={style.body}>
+				<Filters />
+				<CardsContainer />
+			</div>
 			<Footer />
 		</div>
 	);

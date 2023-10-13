@@ -10,7 +10,7 @@ export const recipesSlice = createSlice({
    },
    reducers: {
       startLoading: (state) => {
-         state.startLoading = true;
+         state.isLoading = true;
       },
       setAllRecipes: (state, action) => {
          state.isLoading = false;
@@ -20,6 +20,14 @@ export const recipesSlice = createSlice({
       setAllTypes: (state, action) => {
          state.isLoading = false;
          state.allTypes = action.payload;
+      },
+      setFilteredByTypes: (state, action) => {
+         state.isLoading = false;
+         state.allRecipes = action.payload;
+      },
+      setSortedRecipes: (state, action) => {
+         state.isLoading = false;
+         state.allRecipes = action.payload;
       }
    }
 });
@@ -27,5 +35,7 @@ export const recipesSlice = createSlice({
 export const {
    startLoading,
    setAllRecipes,
-   setAllTypes
+   setAllTypes,
+   setFilteredByTypes,
+   setSortedRecipes
 } = recipesSlice.actions;
