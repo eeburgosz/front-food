@@ -1,3 +1,18 @@
+.container{
+   display: flex;
+   flex-direction: column;
+   min-height: 100vh;
+}
+
 .body{
    display: flex;
+}
+
+@media (max-width: 768px) {
+
+   .body{
+      flex-direction: column;
+      align-items: center;
+   }
+
 }

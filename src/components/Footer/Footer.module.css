@@ -4,6 +4,7 @@
    background-color: #000;
    justify-content: center;
    align-items: center;
+   margin-top: auto;
 }
 
 .subcontainer1 {
@@ -66,6 +67,7 @@
    .container {
       height: 18rem;
       flex-direction: column;
+      /* width: 100% !important; */
    }
 
    .subcontainer1 {

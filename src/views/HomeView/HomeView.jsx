@@ -4,7 +4,7 @@ import style from "./Home.module.css";
 
 export const HomeView = () => {
 	return (
-		<div>
+		<div className={style.container}>
 			<NavBar />
 			<div className={style.body}>
 				<Filters />

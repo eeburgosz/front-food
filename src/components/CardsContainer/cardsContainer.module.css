@@ -1,7 +1,7 @@
 .container {
    display: flex;
    flex-direction: row;
-   width: 100%;
+   width: 100%;   
    justify-content: space-between;
    height: 80px;
    margin-bottom: 0.5rem;
@@ -36,7 +36,7 @@
    align-items: center;
    align-self: center;
    text-align: center;
-   width: 60%;
+   width: 40rem;
 }
 
 .subcontainer h4 {
@@ -53,10 +53,18 @@
    max-width: 100%;
 }
 
+.skeleton{
+   width: 60rem !important;
+height: 5rem !important;
+margin-bottom: 0.5rem;
+}
+
 @media (max-width: 768px) {
    .container {
       flex-direction: column;
       height: auto;
+      width: 30rem;
+      overflow-x: hidden;
       backdrop-filter: blur(8px) saturate(180%);
       -webkit-backdrop-filter: blur(16px) saturate(180%);
       background-color: rgba(172, 230, 184, 0.336);
@@ -68,6 +76,7 @@
       width: 40%;
       align-self: center;
       margin-top: 10px;
+      align-self: center;
    }
 
    .container Button {
@@ -78,10 +87,21 @@
    .subcontainer {
       margin: 10px;
       text-align: center;
-      width: 80%;
    }
 
    .subcontainer p {
       display: none;
+   }
+
+   .paginator{
+      width: 30rem;
+   }
+   .bar{
+      padding: 0;
+   }
+   .skeleton {
+      width: 30rem !important;
+      height: 15rem !important;
+      margin-bottom: 0.5rem;
    }
 }

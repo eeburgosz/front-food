@@ -6,12 +6,21 @@ import { getAllRecipes } from "../../redux-toolkit/thunks";
 import { Paginator } from "primereact/paginator";
 import { Link } from "react-router-dom";
 
+import { Skeleton } from "primereact/skeleton";
+
+const skeletons = [];
+for (let i = 0; i < 5; i++) {
+	skeletons.push(<Skeleton key={i} className={style.skeleton}></Skeleton>);
+}
+
 export const CardsContainer = () => {
 	const dispatch = useDispatch();
 	useEffect(() => {
 		dispatch(getAllRecipes());
 	}, [dispatch]);
 	const data = useSelector((state) => state.recipes.allRecipes);
+	//!
+	const { isLoading } = useSelector((state) => state.recipes);
 
 	const [first, setFirst] = useState(0);
 	const [rows, setRows] = useState(9);
@@ -27,29 +36,36 @@ export const CardsContainer = () => {
 
 	return (
 		<div>
-			{filteredRecipes().map((d) => (
-				<div className={style.container} key={d.id}>
-					<img src={d.img} alt={d.name} />
-					<div className={style.subcontainer}>
-						<h4>{d.name}</h4>
-						<p>
-							{d.Types.map((type, index) => (
-								<span key={type.id}>
-									<em>
-										{type.name}
-										{index < d.Types.length - 1 ? ", " : ""}
-									</em>
-								</span>
-							))}
-						</p>
-					</div>
-					<Link to={`/recipes/${d.id}`}>
-						<Button label="View" icon="pi pi-eye" />
-					</Link>
-				</div>
-			))}
-			<div className="card">
+			{isLoading || data.length === 0 ? (
+				<>{skeletons}</>
+			) : (
+				<>
+					{filteredRecipes().map((d) => (
+						<div className={style.container} key={d.id}>
+							<img src={d.img} alt={d.name} />
+							<div className={style.subcontainer}>
+								<h4>{d.name}</h4>
+								<p>
+									{d.Types.map((type, index) => (
+										<span key={type.id}>
+											<em>
+												{type.name}
+												{index < d.Types.length - 1 ? ", " : ""}
+											</em>
+										</span>
+									))}
+								</p>
+							</div>
+							<Link to={`/recipes/${d.id}`}>
+								<Button label="View" icon="pi pi-eye" />
+							</Link>
+						</div>
+					))}
+				</>
+			)}
+			<div className={`card ${style.paginator}`}>
 				<Paginator
+					className={style.bar}
 					first={first}
 					rows={rows}
 					totalRecords={data.length}
