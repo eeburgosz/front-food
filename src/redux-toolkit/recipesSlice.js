@@ -6,7 +6,8 @@ export const recipesSlice = createSlice({
       isLoading: false,
       allRecipes: [],
       auxAllRecipes: [],
-      allTypes: []
+      allTypes: [],
+      recipeById: {}
    },
    reducers: {
       startLoading: (state) => {
@@ -32,6 +33,10 @@ export const recipesSlice = createSlice({
       setRecipesByName: (state, action) => {
          state.isLoading = false;
          state.allRecipes = action.payload;
+      },
+      setRecipeById: (state, action) => {
+         state.isLoading = false;
+         state.recipeById = action.payload;
       }
    }
 });
@@ -42,5 +47,6 @@ export const {
    setAllTypes,
    setFilteredByTypes,
    setSortedRecipes,
-   setRecipesByName
+   setRecipesByName,
+   setRecipeById
 } = recipesSlice.actions;

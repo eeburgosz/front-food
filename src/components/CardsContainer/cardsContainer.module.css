@@ -31,7 +31,7 @@
 }
 .noRecipes{
    display: flex;
-   width: 100%;
+   width: 50rem;
    justify-content: space-evenly;
    background-color: #fff;
    margin-bottom: 1rem;
@@ -104,6 +104,9 @@ margin-bottom: 0.5rem;
       margin-right: 0;
       margin-bottom: 10px;
    }
+.noRecipes {
+   width: 100%;
+}
 
    .subcontainer {
       margin: 10px;
