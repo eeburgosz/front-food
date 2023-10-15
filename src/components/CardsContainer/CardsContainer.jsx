@@ -4,8 +4,7 @@ import style from "./cardsContainer.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllRecipes } from "../../redux-toolkit/thunks";
 import { Paginator } from "primereact/paginator";
-import { Link } from "react-router-dom";
-
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Skeleton } from "primereact/skeleton";
 
 const skeletons = [];
@@ -34,10 +33,23 @@ export const CardsContainer = () => {
 		setRows(event.rows);
 	};
 
+	const location = useLocation();
+	const navigate = useNavigate();
+	const handleRefresh = () => {
+		location.pathname === "/recipes"
+			? window.location.reload()
+			: navigate("/recipes");
+	};
+
 	return (
 		<div>
-			{isLoading || data.length === 0 ? (
+			{isLoading ? (
 				<>{skeletons}</>
+			) : data.length === 0 ? (
+				<div className={style.noRecipes}>
+					<h3>No recipes found</h3>
+					<Button label="Show all recipes" onClick={handleRefresh} />
+				</div>
 			) : (
 				<>
 					{filteredRecipes().map((d) => (

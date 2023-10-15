@@ -28,6 +28,10 @@ export const recipesSlice = createSlice({
       setSortedRecipes: (state, action) => {
          state.isLoading = false;
          state.allRecipes = action.payload;
+      },
+      setRecipesByName: (state, action) => {
+         state.isLoading = false;
+         state.allRecipes = action.payload;
       }
    }
 });
@@ -37,5 +41,6 @@ export const {
    setAllRecipes,
    setAllTypes,
    setFilteredByTypes,
-   setSortedRecipes
+   setSortedRecipes,
+   setRecipesByName
 } = recipesSlice.actions;

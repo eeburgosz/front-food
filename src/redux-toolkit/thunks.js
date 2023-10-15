@@ -1,5 +1,5 @@
 import { filterByType, sortingRecipes } from "../utils/filters";
-import { setAllRecipes, setAllTypes, setFilteredByTypes, setSortedRecipes, startLoading } from "./recipesSlice";
+import { setAllRecipes, setAllTypes, setFilteredByTypes, setRecipesByName, setSortedRecipes, startLoading } from "./recipesSlice";
 import axios from 'axios';
 
 export const getAllRecipes = () => {
@@ -35,5 +35,17 @@ export const sortRecipes = (selectedSort, selectedScore) => {
       const score = selectedScore?.name || null;
       const data = sortingRecipes(score, sort, allRecipes);
       dispatch(setSortedRecipes(data));
+   };
+};
+
+export const getRecipesByName = (value) => {
+   return async (dispatch) => {
+      dispatch(startLoading());
+      try {
+         const { data } = await axios.get(`https://backfood-d7cg.onrender.com/recipes?name=${value}`);
+         dispatch(setRecipesByName(data));
+      } catch (error) {
+         dispatch(setRecipesByName([]));
+      }
    };
 };
