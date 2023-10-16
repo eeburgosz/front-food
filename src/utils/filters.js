@@ -30,3 +30,15 @@ export const sortingRecipes = (score, sort, recipes) => {
    }
    return recipesCopy;
 };
+
+export const getDishTypes = (recipes) => {
+   const types = new Set();
+   recipes.forEach((recipe) => {
+      const { dishTypes } = recipe;
+      dishTypes.forEach((dishType) => {
+         types.add(dishType);
+      });
+   });
+   return [...types];
+
+};
