@@ -67,7 +67,6 @@
    .container {
       height: 18rem;
       flex-direction: column;
-      /* width: 100% !important; */
    }
 
    .subcontainer1 {

@@ -1,12 +1,14 @@
-import { filterByType, getDishTypes, sortingRecipes } from "../utils/filters";
-import { setAllDishTypes, setAllRecipes, setAllTypes, setFilteredByTypes, setRecipeById, setRecipesByName, setSortedRecipes, startLoading } from "./recipesSlice";
+import { filterByType, sortingRecipes } from "../utils/filters";
+import { setAllRecipes, setAllTypes, setFilteredByTypes, setRecipeById, setRecipesByName, setSortedRecipes, startLoading } from "./recipesSlice";
 import axios from 'axios';
+
+const URL = "https://backfood-nxl1.onrender.com";
 
 export const getAllRecipes = () => {
    return async (dispatch) => {
       dispatch(startLoading());
       try {
-         const { data } = await axios.get("https://backfood-d7cg.onrender.com/recipes");
+         const { data } = await axios.get(`${URL}/recipes`);
          dispatch(setAllRecipes(data));
       } catch (error) {
          dispatch(setAllRecipes([]));
@@ -19,7 +21,7 @@ export const getAllTypes = () => {
    return async (dispatch) => {
       dispatch(startLoading());
       try {
-         const { data } = await axios.get("https://backfood-d7cg.onrender.com/types");
+         const { data } = await axios.get(`${URL}/types`);
          dispatch(setAllTypes(data));
       } catch (error) {
          dispatch(setAllTypes([]));
@@ -63,11 +65,11 @@ export const getRecipesByName = (value) => {
    return async (dispatch) => {
       dispatch(startLoading());
       try {
-         const { data } = await axios.get(`https://backfood-d7cg.onrender.com/recipes?name=${value}`);
+         const { data } = await axios.get(`${URL}/recipes?name=${value}`);
+         console.log(data);
          dispatch(setRecipesByName(data));
       } catch (error) {
          dispatch(setRecipesByName([]));
-         throw new Error({ message: error.message });
       }
    };
 };
@@ -76,32 +78,24 @@ export const getRecipeById = (id) => {
    return async (dispatch) => {
       dispatch(startLoading());
       try {
-         const { data } = await axios.get(`https://backfood-d7cg.onrender.com/recipes/${id}`);
+         const { data } = await axios.get(`${URL}/recipes/${id}`);
          dispatch(setRecipeById(data));
       } catch (error) {
-         dispatch(setRecipeById({}));
          throw new Error({ message: error.message });
       }
    };
 };
 
-export const getAllDishTypes = () => {
-   return async (dispatch, getState) => {
-      dispatch(startLoading());
-      try {
-         const { auxAllRecipes } = getState().recipes;
-         const allDishTypes = getDishTypes(auxAllRecipes);
-         dispatch(setAllDishTypes(allDishTypes));
-      } catch (error) {
-         dispatch(setAllDishTypes([]));
-         throw new Error({ message: error.message });
-      }
-   };
-};
 
 export const postNewRecipe = (payload) => {
    return async (dispatch) => {
       dispatch(startLoading());
-      console.log(payload);
+      const { name, img, summary, stepByStep, dishTypes, types, score, healthScore } = payload;
+      try {
+         const postData = { name, img, summary, stepByStep, dishTypes, types, score, healthScore };
+         await axios.post(`${URL}/recipe`, postData);
+      } catch (error) {
+         throw new Error({ message: error.message });
+      }
    };
 };

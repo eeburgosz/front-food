@@ -3,11 +3,12 @@ import style from "./Detail.module.css";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getRecipeById } from "../../redux-toolkit/thunks";
-import { Footer, NavBar } from "../../components";
+import { Footer } from "../../components";
 import { Button } from "primereact/button";
 import { Fieldset } from "primereact/fieldset";
 import { Dialog } from "primereact/dialog";
 import { Skeleton } from "primereact/skeleton";
+import noImage from "../../assets/noImage.jpg";
 
 export const DetailView = () => {
 	const dispatch = useDispatch();
@@ -37,14 +38,13 @@ export const DetailView = () => {
 
 	return (
 		<>
-			<NavBar />
-			{isLoading ? (
+			{isLoading || !recipeById ? (
 				<Skeleton className={style.skeleton}></Skeleton>
 			) : (
 				<div className={style.container}>
 					<div className={style.body}>
 						<div className={style.subcontainer1}>
-							<img src={img} alt="img" />
+							<img src={img || noImage} alt="img" />
 							<div className={style.nameScores}>
 								<h3>{name}</h3>
 								<div className={style.scores}>
@@ -102,7 +102,7 @@ export const DetailView = () => {
 								</label>
 								<span>
 									{Types?.map((type, index) => (
-										<span key={type.id}>
+										<span key={index}>
 											<em>
 												{type.name}
 												{index < Types.length - 1 ? ", " : "."}
@@ -117,7 +117,7 @@ export const DetailView = () => {
 								</label>
 								<span>
 									{dishTypes?.map((type, index) => (
-										<span key={type.type}>
+										<span key={index}>
 											<em>
 												{type}
 												{index < dishTypes.length - 1 ? ", " : "."}

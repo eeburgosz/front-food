@@ -6,11 +6,7 @@
    position: fixed;
    width: 100%;
    z-index: 10;
-   /* background-color: red; */
 }
-/* .image{
-   height: 70px;
-} */
 .container h4{
    align-self: center;
    letter-spacing: 2px;
@@ -28,8 +24,7 @@
    border: none;
    display: flex;
    flex-direction: row;
-   /* width: 100%; */
-   justify-content: end;
+   justify-content: flex-end;
    align-items: center;
    gap: 1rem;
 }

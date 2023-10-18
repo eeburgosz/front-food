@@ -4,8 +4,9 @@ import style from "./cardsContainer.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllRecipes } from "../../redux-toolkit/thunks";
 import { Paginator } from "primereact/paginator";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Skeleton } from "primereact/skeleton";
+import noImage from "../../assets/noImage.jpg";
 
 const skeletons = [];
 for (let i = 0; i < 5; i++) {
@@ -33,14 +34,6 @@ export const CardsContainer = () => {
 		setRows(event.rows);
 	};
 
-	const location = useLocation();
-	const navigate = useNavigate();
-	const handleRefresh = () => {
-		location.pathname === "/recipes"
-			? window.location.reload()
-			: navigate("/recipes");
-	};
-
 	return (
 		<div>
 			{isLoading ? (
@@ -48,13 +41,12 @@ export const CardsContainer = () => {
 			) : data.length === 0 ? (
 				<div className={style.noRecipes}>
 					<h3>No recipes found</h3>
-					<Button label="Show all recipes" onClick={handleRefresh} />
 				</div>
 			) : (
 				<>
 					{filteredRecipes().map((d) => (
 						<div className={style.container} key={d.id}>
-							<img src={d.img} alt={d.name} />
+							<img src={d.img || noImage} alt={d.name} />
 							<div className={style.subcontainer}>
 								<h4>{d.name}</h4>
 								<p>
@@ -62,7 +54,7 @@ export const CardsContainer = () => {
 										<span key={type.id}>
 											<em>
 												{type.name}
-												{index < d.Types.length - 1 ? ", " : ""}
+												{index < d.Types.length - 1 ? ", " : "."}
 											</em>
 										</span>
 									))}

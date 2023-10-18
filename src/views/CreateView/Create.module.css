@@ -15,10 +15,13 @@ backdrop-filter: blur(8px) saturate(180%);
 
 .group{
    display: flex;
-   flex-direction: row;
-   gap: 3rem;
+   flex-direction: column;
+   gap: 1rem;
    margin-bottom: 1rem;
    align-items: center;
+}
+.group label{
+   text-align: end;
 }
 
 .container input{
@@ -38,8 +41,9 @@ backdrop-filter: blur(8px) saturate(180%);
 .submit{
    display: flex;
    margin-top: 3rem;
-   background-color: #043F04;
-   border-color: #043F04;
+   background-color: #c6c6c6;
+      border-color: #043F04;
+      color: #043F04;
    width: 15rem;
 }
 
@@ -48,6 +52,9 @@ backdrop-filter: blur(8px) saturate(180%);
    flex-direction: column;
    align-items: center;
 }
+.form h2{
+   margin-bottom: 3rem;
+}
 .stepsGroup{
    display: flex;
    flex-direction: column;
@@ -55,8 +62,6 @@ backdrop-filter: blur(8px) saturate(180%);
 }
 .steps{
    display: flex;
-   /* justify-content: center;
-   align-items: center; */
    gap: 2rem;
    margin-bottom: 1rem;
 }
@@ -74,10 +79,51 @@ backdrop-filter: blur(8px) saturate(180%);
    width: 2rem;
    align-self: self-end;
 }
-
+.goback {
+   margin-top: 2rem;
+   background-color: #043F04;   
+   border-color: #043F04;
+   height: 3rem;
+   margin-top: 3rem;
+}
+.buttons{
+   gap: 1rem;
+   align-items: center;
+   display: flex;
+   flex-direction: row-reverse;
+   width: 100%;
+   justify-content: space-evenly;
+}
+ .inputArea {
+    display: flex;
+    align-items: center;
+ }
+ .inputArea label{
+   margin-right: 2rem;
+ }
+ .dividers{
+   background-color: transparent;
+   font-weight: 500;
+   width: 80vw;
+ }
+ .dividers div{
+   background-color:#043F04;
+   color: #fff;
+ }
+ .scores{
+   display: flex;
+   gap: 3rem;
+ }
+ .types{
+   display: flex;
+   gap: 3rem;
+ }
 @media (max-width: 768px) {
-   .group{
+   .buttons{
       flex-direction: column;
+      gap: 0;
+   }
+   .group{
       gap: 0.25rem;
       margin: 1rem;
    }
@@ -90,5 +136,14 @@ backdrop-filter: blur(8px) saturate(180%);
       flex-direction: column;
       align-items: center;
       gap: 0.25rem;
+   }
+   .scores {
+      flex-direction: column;
+      gap: 1rem;
+   }
+
+   .types {
+      flex-direction: column;
+      gap: 1rem;
    }
 }

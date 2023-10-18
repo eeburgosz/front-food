@@ -15,6 +15,7 @@ export const NavBar = () => {
 	const handleChange = (e) => {
 		setValue(e.target.value);
 	};
+
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		setValue("");
