@@ -18,9 +18,8 @@ export const CardsContainer = () => {
 	useEffect(() => {
 		dispatch(getAllRecipes());
 	}, [dispatch]);
-	const data = useSelector((state) => state.recipes.allRecipes);
-	//!
-	const { isLoading } = useSelector((state) => state.recipes);
+
+	const { isLoading, allRecipes: data } = useSelector((state) => state.recipes);
 
 	const [first, setFirst] = useState(0);
 	const [rows, setRows] = useState(9);

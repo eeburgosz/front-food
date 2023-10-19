@@ -17,9 +17,9 @@ root.render(
   <Provider store={store}>
     <BrowserRouter>
       <PrimeReactProvider>
-        {/* <React.StrictMode> */}
-        <App />
-        {/* </React.StrictMode> */}
+        <React.StrictMode>
+          <App />
+        </React.StrictMode>
       </PrimeReactProvider>
     </BrowserRouter>
   </Provider>

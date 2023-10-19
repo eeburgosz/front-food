@@ -23,7 +23,8 @@
    width: 100%;
    justify-content: space-evenly;
 }
-.subcontainer1 img{
+
+.subcontainer1 img {
    width: 312px;
    align-self: center;
 }
@@ -34,6 +35,7 @@
    flex-direction: column;
    text-align: center;
    justify-content: center;
+   gap: 0.5rem;
 }
 
 .scores {
@@ -58,6 +60,7 @@
    gap: 1rem;
    align-items: center;
 }
+
 .summarySbS div:nth-child(2) {
    width: 70vw;
    max-width: 100%;
@@ -67,20 +70,24 @@
 .button {
    background-color: #043F04;
    border-color: #043F04;
+   gap: 0.5rem;
 }
 
 .goback {
    margin-top: 2rem;
    background-color: #043F04;
    border-color: #043F04;
+   gap: 0.5rem;
 }
 
 .skeleton {
    display: flex;
    justify-content: center;
-   margin: 2rem;   
+   margin: 2rem;
    height: 35rem !important;
    width: 90vw !important;
+   background-color: #999b99;
+   border: 2px ridge #e0e2e0
 }
 
 .dialog {
@@ -91,6 +98,7 @@
 
    .subcontainer1 {
       flex-direction: column;
+      gap: 1rem;
    }
 
    .types {
