@@ -1,8 +1,8 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import "primeicons/primeicons.css";
 import style from "./Footer.module.css";
 import logo from "../../assets/logo.png";
-import "primeicons/primeicons.css";
-import { Link } from "react-router-dom";
 
 export const Footer = () => {
 	return (

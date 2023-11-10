@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { Dropdown } from "primereact/dropdown";
-import style from "./Filters.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import { Button } from "primereact/button";
+import { Dropdown } from "primereact/dropdown";
+import { useLocation, useNavigate } from "react-router-dom";
 import {
 	filterByTypes,
 	getAllTypes,
 	sortRecipes,
 } from "../../redux-toolkit/thunks";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Button } from "primereact/button";
+import style from "./Filters.module.css";
 
 export const Filters = () => {
 	const dispatch = useDispatch();

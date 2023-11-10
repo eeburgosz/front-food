@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
-import style from "./Detail.module.css";
-import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
 import { getRecipeById } from "../../redux-toolkit/thunks";
 import { Footer } from "../../components";
 import { Button } from "primereact/button";
-import { Fieldset } from "primereact/fieldset";
 import { Dialog } from "primereact/dialog";
+import { Fieldset } from "primereact/fieldset";
 import { Skeleton } from "primereact/skeleton";
+import style from "./Detail.module.css";
 import noImage from "../../assets/noImage.jpg";
 
 export const DetailView = () => {

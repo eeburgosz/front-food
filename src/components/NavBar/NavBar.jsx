@@ -1,11 +1,11 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
+import { getRecipesByName } from "../../redux-toolkit/thunks";
+import { Button } from "primereact/button";
+import { InputText } from "primereact/inputtext";
 import style from "./navBar.module.css";
 import cooking from "../../assets/cooking.png";
-import { InputText } from "primereact/inputtext";
-import { Button } from "primereact/button";
-import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { getRecipesByName } from "../../redux-toolkit/thunks";
 
 export const NavBar = () => {
 	const dispatch = useDispatch();

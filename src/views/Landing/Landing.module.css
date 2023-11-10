@@ -14,6 +14,41 @@
    transition: 0.5s;
 }
 
+.dialog {
+   display: flex;
+   flex-direction: column;
+   width: 60%;
+}
+
+.dialog h3 {
+   margin-top: 0;
+   margin-bottom: 1rem;
+   text-align: center;
+   font-size: 24px;
+   font-weight: 900;
+   color: red;
+   text-decoration: underline;
+}
+
+.signature {
+   display: flex;
+   width: 100%;
+   flex-direction: column;
+   margin-top: 2rem;
+   gap: 3rem;
+}
+
+.signature code {
+   text-align: right;
+}
+
+.signature button {
+   width: 8rem;
+   align-self: center;
+   border-color: #043F04;
+   background-color: #043F04;
+}
+
 .video {
    width: 100%;
    height: 100vh;

@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { Button } from "primereact/button";
-import style from "./cardsContainer.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllRecipes } from "../../redux-toolkit/thunks";
-import { Paginator } from "primereact/paginator";
 import { Link } from "react-router-dom";
+import { getAllRecipes } from "../../redux-toolkit/thunks";
+import { Button } from "primereact/button";
+import { Paginator } from "primereact/paginator";
 import { Skeleton } from "primereact/skeleton";
+import style from "./cardsContainer.module.css";
 import noImage from "../../assets/noImage.jpg";
 
 const skeletons = [];

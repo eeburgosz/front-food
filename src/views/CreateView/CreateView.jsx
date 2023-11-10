@@ -1,12 +1,4 @@
 import React, { useEffect, useState } from "react";
-import style from "./Create.module.css";
-import { InputText } from "primereact/inputtext";
-import { InputTextarea } from "primereact/inputtextarea";
-import { InputNumber } from "primereact/inputnumber";
-import { MultiSelect } from "primereact/multiselect";
-import { Button } from "primereact/button";
-import { Divider } from "primereact/divider";
-import Swal from "sweetalert2";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllTypes, postNewRecipe } from "../../redux-toolkit/thunks";
 import { getDishTypes } from "../../utils/filters";
@@ -15,6 +7,14 @@ import {
 	validatorSteps,
 	validatorSummary,
 } from "../../utils/validator";
+import { Button } from "primereact/button";
+import { Divider } from "primereact/divider";
+import { InputNumber } from "primereact/inputnumber";
+import { InputText } from "primereact/inputtext";
+import { InputTextarea } from "primereact/inputtextarea";
+import { MultiSelect } from "primereact/multiselect";
+import style from "./Create.module.css";
+import Swal from "sweetalert2";
 
 const initialState = {
 	name: "",
